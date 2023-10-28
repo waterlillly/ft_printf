@@ -6,7 +6,7 @@
 /*   By: lbaumeis <lbaumeis@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 05:25:42 by lbaumeis          #+#    #+#             */
-/*   Updated: 2023/10/28 06:27:39 by lbaumeis         ###   ########.fr       */
+/*   Updated: 2023/10/28 12:24:06 by lbaumeis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,38 +19,45 @@ va_list	args;
 int	ft_printf(const char *format, ...)
 {
 	va_start(args, format);
-	int	count;
+	
+	int			count;
+	//const char	*specifiers;
 
 	count = 0;
-	while (*format)
+	//specifiers = "cspdixX";
+	while (*format++)
 	{
 		if (*format == '%')
 		{
 			*format++;
+			/*
+			if (ft_checkif(specifiers, *format))
+				ft_printformat();
+			*/
 			if (*format == 'c')
-				count += ft_printchar(va_arg(args, char));
+				count += ft_printchar(va_arg(args, const char));
 			else if (*format == 's')
-				count += ft_printstr(va_arg(args, char *));
+				count += ft_printstr(va_arg(args, const char *));
 			else if (*format == 'p')
-			{
-				count += write(1, "0x", 2);
-				count += ft_printhex(va_arg(args, char *));
-			}
+				count += ft_printhex('p', va_arg(args, void *));
 			else if (*format == 'd' || *format == 'i')
-				count += ft_printnbr(va_arg(args, int));
+				count += ft_printnbr((long)va_arg(args, int));
 			else if (*format == 'x')
-				count += ft_tolower(ft_printhex(va_arg(args, char *)));
+				count += ft_printhex('x', va_arg(args, void *));
 			else if (*format == 'X')
-				count += ft_toupper(ft_printhex(va_arg(args, char *)));
+				count += ft_printhex('X', va_arg(args, void *));
 			else if (*format == '%' && *++format != '%')
-				count += write(1, "%", 1);
+				count += write(1, '%', 1);
 			else
+			{
+				count += write(1, '%', 1);
 				count += ft_printchar(*format);
-			return (count);
+			}
+			//return (count);
 		}
 		else
 			count += ft_printchar(*format);
-		return (count);
+		//return (count);
 	}
-	
+	return (count);
 }

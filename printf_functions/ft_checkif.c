@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printchar.c                                     :+:      :+:    :+:   */
+/*   ft_checkif.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lbaumeis <lbaumeis@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/28 06:00:45 by lbaumeis          #+#    #+#             */
-/*   Updated: 2023/10/28 12:23:52 by lbaumeis         ###   ########.fr       */
+/*   Created: 2023/10/28 10:55:44 by lbaumeis          #+#    #+#             */
+/*   Updated: 2023/10/28 12:24:02 by lbaumeis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-
-int	ft_printchar(const char c)
+int	ft_checkif(const char *data, char c)
 {
-	int	count;
-
-	count = 0;
-	count += write(1, &c, 1);
-	return (count);
+	while (*data)
+	{
+		if (*data == c)
+			return (1);
+		else
+			*data++;
+	}
+	return (0);
 }
