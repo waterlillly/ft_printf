@@ -6,28 +6,21 @@
 /*   By: lbaumeis <lbaumeis@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 08:44:14 by lbaumeis          #+#    #+#             */
-/*   Updated: 2023/10/28 12:23:32 by lbaumeis         ###   ########.fr       */
+/*   Updated: 2023/10/28 14:35:16 by lbaumeis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ftprintf.h"
 
-int	ft_printhex(char specifier, void *ptr)
+int	ft_printhex(char specify, unsigned int unbr)
 {
 	int		count;
 	char	*base;
-	void	**ptr_to_ptr;
 
 	count = 0;
-	ptr_to_ptr = &ptr;
-	if (specifier == 'p')
-	{
-		count += ft_printstr("0x");
+	if (specify == 'x')
 		base = "0123456789abcdef";
-	}
-	else if (specifier == 'x')
-		base = "0123456789abcdef";
-	else if (specifier == 'X')
+	else if (specify == 'X')
 		base = "0123456789ABCDEF";
 	
 	
@@ -38,4 +31,8 @@ else if (ft_islower(specifier))
 	base = "0123456789abcdef";
 else if (ft_isupper(specifier))
 	base = "0123456789ABCDEF";
+
+OR: (only lower base)
+if (specify == 'X')
+	ft_toupper(ft_printhex(...))
 */

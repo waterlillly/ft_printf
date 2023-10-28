@@ -1,23 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_checkif.c                                       :+:      :+:    :+:   */
+/*   ft_printptr.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lbaumeis <lbaumeis@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/28 10:55:44 by lbaumeis          #+#    #+#             */
-/*   Updated: 2023/10/28 13:40:56 by lbaumeis         ###   ########.fr       */
+/*   Created: 2023/10/28 13:23:09 by lbaumeis          #+#    #+#             */
+/*   Updated: 2023/10/28 14:35:59 by lbaumeis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_checkif(const char *data, char c)
+#include "ftprintf.h"
+
+int	ft_printptr(unsigned long ptr)
 {
-	while (*data)
-	{
-		if (*data == c)
-			return (1);
-		else
-			*data++;
-	}
-	return (0);
+	
 }

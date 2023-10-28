@@ -6,58 +6,48 @@
 /*   By: lbaumeis <lbaumeis@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 05:25:42 by lbaumeis          #+#    #+#             */
-/*   Updated: 2023/10/28 12:24:06 by lbaumeis         ###   ########.fr       */
+/*   Updated: 2023/10/28 14:38:56 by lbaumeis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdarg.h>
-#include "libft.h"
-//#include "ftprintf.h"
+#include "ftprintf.h"
 
 va_list	args;
 
 int	ft_printf(const char *format, ...)
 {
-	va_start(args, format);
-	
 	int			count;
-	//const char	*specifiers;
+	const char	*specifiers;
+	va_start(args, format);
 
 	count = 0;
-	//specifiers = "cspdixX";
+	specifiers = "csdiupxX%";
 	while (*format++)
 	{
-		if (*format == '%')
+		if (*format == '%' && ft_checkif(specifiers, *++format))
 		{
-			*format++;
-			/*
-			if (ft_checkif(specifiers, *format))
-				ft_printformat();
-			*/
 			if (*format == 'c')
-				count += ft_printchar(va_arg(args, const char));
-			else if (*format == 's')
-				count += ft_printstr(va_arg(args, const char *));
-			else if (*format == 'p')
-				count += ft_printhex('p', va_arg(args, void *));
-			else if (*format == 'd' || *format == 'i')
-				count += ft_printnbr((long)va_arg(args, int));
-			else if (*format == 'x')
-				count += ft_printhex('x', va_arg(args, void *));
-			else if (*format == 'X')
-				count += ft_printhex('X', va_arg(args, void *));
-			else if (*format == '%' && *++format != '%')
+				count += ft_printchar(va_arg(args, int));
+			if (*format == 's')
+				count += ft_printstr(va_arg(args, char *));
+			if (*format == 'd' || *format == 'i')
+				count += ft_printnbr(va_arg(args, int));
+			if (*format == 'u')
+				count += ft_printunbr(va_arg(args, unsigned int));
+			if (*format == 'p')
+				count += ft_printptr(va_arg(args, unsigned long));
+			if (*format == 'x')
+				count += ft_printhex('x', va_arg(args, unsigned int));
+			if (*format == 'X')
+				count += ft_printhex('X', va_arg(args, unsigned int));
+			if (*format == '%' && *++format != '%')
 				count += write(1, '%', 1);
 			else
-			{
-				count += write(1, '%', 1);
 				count += ft_printchar(*format);
-			}
-			//return (count);
 		}
 		else
 			count += ft_printchar(*format);
-		//return (count);
 	}
+	va_end(args);
 	return (count);
 }
