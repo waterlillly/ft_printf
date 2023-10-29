@@ -1,23 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printstr.c                                      :+:      :+:    :+:   */
+/*   ft_islower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lbaumeis <lbaumeis@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/28 06:02:45 by lbaumeis          #+#    #+#             */
-/*   Updated: 2023/10/29 19:34:33 by lbaumeis         ###   ########.fr       */
+/*   Created: 2023/10/28 09:37:29 by lbaumeis          #+#    #+#             */
+/*   Updated: 2023/10/28 12:23:59 by lbaumeis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ftprintf.h"
-
-int	ft_printstr(char *s)
+int	ft_islower(char c)
 {
-	int	count;
-
-	count = 0;
-	while (*s++)
-		count += ft_printchar(*s);
-	return (count);
+	if (c >= 'a' && c <= 'z')
+		return (1);
+	else
+		return (0);
 }
