@@ -1,27 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ftprintf.h                                         :+:      :+:    :+:   */
+/*   ft_printchar.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lbaumeis <lbaumeis@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/28 06:06:02 by lbaumeis          #+#    #+#             */
-/*   Updated: 2023/10/29 15:33:10 by lbaumeis         ###   ########.fr       */
+/*   Created: 2023/10/28 06:00:45 by lbaumeis          #+#    #+#             */
+/*   Updated: 2023/10/28 14:36:24 by lbaumeis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FTPRINTF_H
-# define FTPRINTF_H
+#include <unistd.h>
 
-# include "libft.h"
+int	ft_printchar(int c)
+{
+	int	count;
 
-int	ft_printf(const char *, ...);
-int	ft_printchar(int c);
-int	ft_printstr(char *s);
-int	ft_printnbr(char specifier, long int nbr, int base);
-int	ft_printunbr(unsigned int nbr);
-int	ft_printptr(void *ptr);
-//int	ft_printhexa(char specifier, long int nbr);
-int	ft_checkif(const char *data, char c);
-
-#endif
+	count = 0;
+	count += write(1, &c, 1);
+	return (count);
+}

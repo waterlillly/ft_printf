@@ -6,31 +6,58 @@
 /*   By: lbaumeis <lbaumeis@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 08:38:19 by lbaumeis          #+#    #+#             */
-/*   Updated: 2023/10/28 14:34:25 by lbaumeis         ###   ########.fr       */
+/*   Updated: 2023/10/29 16:17:07 by lbaumeis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ftprintf.h"
 
-int	ft_printnbr(int nbr)
+static int	ft_printhexa(char specifier, int nbr)
 {
-	int	count;
+	int		count;
+	char	*set;
 
 	count = 0;
-	if (nbr == -2147483648)
+	if (specifier == 'X')
+		set = "ABCDEF";
+	else
+		set = "abcdef";
+	if (nbr == 10)
+		count += ft_printchar(set[0]);
+	else if (nbr == 11)
+		count += ft_printchar(set[1]);
+	else if (nbr == 12)
+		count += ft_printchar(set[2]);
+	else if (nbr == 13)
+		count += ft_printchar(set[3]);
+	else if (nbr == 14)
+		count += ft_printchar(set[4]);
+	else if (nbr == 15)
+		count += ft_printchar(set[5]);
+	return (count);
+}
+
+int	ft_printnbr(char specifier, long int nbr, int base)
+{
+	int		count;
+	
+	count = 0;
+	if (nbr == -2147483648 && base == 10)
 		count += ft_printstr("-2147483648");
-	else if (nbr < 0 && nbr > -2147483648)
+	if (nbr < 0 && nbr > -2147483648 && base == 10)
 	{
 		count += ft_printchar('-');
 		nbr = -nbr;
-		count += ft_printnbr(nbr);
+		count += ft_printnbr(specifier, nbr, base);
 	}
-	else if (nbr >= 0 && nbr < 10)
+	if (nbr >= 0 && nbr < 10)
 		count += ft_printchar(nbr + 48);
-	else if (nbr >= 10 && nbr < 2147483648)
+	if (base == 16 && nbr >= 10 && nbr < base)
+		count += ft_printhexa(specifier, nbr);
+	if (nbr >= base)
 	{
-		count += ft_printnbr(nbr / 10);
-		count += ft_printnbr(nbr % 10);
+		count += ft_printnbr(specifier, (nbr / base), base);
+		count += ft_printnbr(specifier, (nbr % base), base);
 	}
 	return (count);
 }
