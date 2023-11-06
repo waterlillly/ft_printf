@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "libftprintf.h"
-#include <stdarg.h>
 
 int	ft_printf(const char *format, ...)
 {
@@ -22,7 +21,7 @@ int	ft_printf(const char *format, ...)
 	va_start(args, format);
 	count = 0;
 	i = 0;
-	if (!format)
+	if (!format || format == NULL)
 		count += ft_printstr("(null)");
 	while (format[i] != '\0')
 	{
@@ -38,6 +37,7 @@ int	ft_printf(const char *format, ...)
 	va_end(args);
 	return (count);
 }
+
 /*
 int main(void)
 {
