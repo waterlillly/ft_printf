@@ -6,15 +6,15 @@
 /*   By: lbaumeis <lbaumeis@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 06:00:45 by lbaumeis          #+#    #+#             */
-/*   Updated: 2023/10/30 21:10:03 by lbaumeis         ###   ########.fr       */
+/*   Updated: 2023/11/06 18:36:48 by lbaumeis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int	ft_printchar(int c)
 {
-	int	count;
+	int		count;
 	char	d;
 
 	count = 0;
@@ -22,14 +22,3 @@ int	ft_printchar(int c)
 	count += write(1, &d, 1);
 	return (count);
 }
-
-/*
-int	main(void)
-{
-	char	c;
-
-	c = 'a';
-	ft_printchar(c);
-	return (0);
-}
-*/

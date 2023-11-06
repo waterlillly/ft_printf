@@ -6,11 +6,11 @@
 /*   By: lbaumeis <lbaumeis@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/30 15:46:58 by lbaumeis          #+#    #+#             */
-/*   Updated: 2023/11/01 21:03:40 by lbaumeis         ###   ########.fr       */
+/*   Updated: 2023/11/06 18:37:20 by lbaumeis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 #include <limits.h>
 
 int main(void)

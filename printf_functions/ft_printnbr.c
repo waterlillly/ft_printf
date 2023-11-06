@@ -6,11 +6,11 @@
 /*   By: lbaumeis <lbaumeis@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 08:38:19 by lbaumeis          #+#    #+#             */
-/*   Updated: 2023/10/30 21:11:54 by lbaumeis         ###   ########.fr       */
+/*   Updated: 2023/11/06 18:36:32 by lbaumeis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 static int	ft_islower(char c)
 {
@@ -56,7 +56,7 @@ static int	ft_printhexa(char specifier, int nbr)
 int	ft_printnbr(char specifier, long int nbr, int base)
 {
 	int	count;
-	
+
 	count = 0;
 	if (specifier == 'u')
 		nbr = (unsigned int)nbr;
@@ -78,14 +78,3 @@ int	ft_printnbr(char specifier, long int nbr, int base)
 	}
 	return (count);
 }
-/*
-int	main(void)
-{
-	ft_printnbr('u', -16, 10);
-	printf("\n");
-	ft_printnbr('u', 16, 10);
-	printf("\n");
-	printf("real -unsigned: %u\nreal +unsigned: %u\n", -16, 16);
-	return (0);
-}
-*/

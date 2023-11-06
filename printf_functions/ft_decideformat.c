@@ -6,12 +6,11 @@
 /*   By: lbaumeis <lbaumeis@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 20:54:11 by lbaumeis          #+#    #+#             */
-/*   Updated: 2023/11/01 20:55:26 by lbaumeis         ###   ########.fr       */
+/*   Updated: 2023/11/06 18:36:49 by lbaumeis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
-#include <stdarg.h>
+#include "ft_printf.h"
 
 int	ft_decideformat(va_list args, const char *format, int i)
 {
@@ -26,12 +25,10 @@ int	ft_decideformat(va_list args, const char *format, int i)
 		count += ft_printptr(va_arg(args, void *));
 	else if (format[i] == '%')
 		count += ft_printchar(37);
-	else if (format[i] == 'd' || format[i] == 'i' || format[i] == 'u') {
+	else if (format[i] == 'd' || format[i] == 'i' || format[i] == 'u')
 		count += ft_printnbr(format[i], va_arg(args, int), 10);
-	}
-	else if (format[i] == 'x' || format[i] == 'X') {
+	else if (format[i] == 'x' || format[i] == 'X')
 		count += ft_printnbr(format[i], va_arg(args, unsigned int), 16);
-	}
 	else
 		count += ft_printchar((int)format[i]);
 	return (count);
