@@ -6,11 +6,11 @@
 /*   By: lbaumeis <lbaumeis@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 08:38:19 by lbaumeis          #+#    #+#             */
-/*   Updated: 2023/11/06 18:45:19 by lbaumeis         ###   ########.fr       */
+/*   Updated: 2023/11/06 19:32:05 by lbaumeis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 static int	ft_islower(char c)
 {
@@ -28,7 +28,7 @@ static int	ft_isupper(char c)
 		return (0);
 }
 
-static int	ft_printhexa(char specifier, int nbr)
+static int	ft_printhexa(char specifier, unsigned long int nbr)
 {
 	int		count;
 	char	*set;
@@ -60,6 +60,8 @@ int	ft_printnbr(char specifier, long int nbr, int base)
 	count = 0;
 	if (specifier == 'u')
 		nbr = (unsigned int)nbr;
+	if (specifier == 'x' || specifier == 'X')
+		nbr = (unsigned long int)nbr;
 	if (nbr == -2147483648 && base == 10)
 		count += ft_printstr("-2147483648");
 	if (nbr < 0 && nbr > -2147483648 && base == 10)

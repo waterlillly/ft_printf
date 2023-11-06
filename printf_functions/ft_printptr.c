@@ -6,11 +6,11 @@
 /*   By: lbaumeis <lbaumeis@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 13:23:09 by lbaumeis          #+#    #+#             */
-/*   Updated: 2023/11/06 18:45:14 by lbaumeis         ###   ########.fr       */
+/*   Updated: 2023/11/06 21:42:40 by lbaumeis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 int	ft_printptr(void *ptr)
 {
@@ -19,7 +19,16 @@ int	ft_printptr(void *ptr)
 
 	count = 0;
 	p = (long int)ptr;
-	count += ft_printstr("0x");
-	count += ft_printnbr('x', p, 16);
+	if (p == 0)
+		return (ft_printstr("(nil)"));
+	if ((long long int)p < -9223372036854775807)
+		return (ft_printstr("0x8000000000000000"));
+	if ((long long int)p < 0)
+		return (ft_printstr("0xffffffffffffffff"));
+	else
+	{
+		count += ft_printstr("0x");
+		count += ft_printnbr('x', p, 16);
+	}
 	return (count);
 }
