@@ -15,3 +15,7 @@ python3 -m pip install norminette
 UPDATE:
 python3 -m pip install --upgrade pip
 python3 -m pip install --upgrade norminette
+
+ALIAS:
+alias c='clear'
+alias a='./a.out'
