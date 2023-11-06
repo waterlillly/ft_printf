@@ -6,7 +6,7 @@
 #    By: lbaumeis <lbaumeis@student.42vienna.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/10/29 17:04:33 by lbaumeis          #+#    #+#              #
-#    Updated: 2023/11/06 18:36:26 by lbaumeis         ###   ########.fr        #
+#    Updated: 2023/11/06 18:44:52 by lbaumeis         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ OFILES = $(CFILES:.c=.o)
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-NAME = ft_printf.a
+NAME = libftprintf.a
 
 .c.o:
 	$(CC) $(CFLAGS) -c $< -o $@
@@ -26,7 +26,6 @@ all: $(NAME)
 
 $(NAME): $(OFILES)
 	ar rc $(NAME) $(OFILES)
-	#runlib $(NAME)
 
 clean:
 	rm -f $(OFILES)

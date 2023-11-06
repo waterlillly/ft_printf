@@ -6,12 +6,12 @@
 /*   By: lbaumeis <lbaumeis@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 06:06:02 by lbaumeis          #+#    #+#             */
-/*   Updated: 2023/11/06 18:36:46 by lbaumeis         ###   ########.fr       */
+/*   Updated: 2023/11/06 18:45:26 by lbaumeis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#ifndef LIBFTPRINTF_H
+# define LIBFTPRINTF_H
 
 # include <unistd.h>
 # include <stdarg.h>

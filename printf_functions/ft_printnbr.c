@@ -6,11 +6,11 @@
 /*   By: lbaumeis <lbaumeis@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/28 08:38:19 by lbaumeis          #+#    #+#             */
-/*   Updated: 2023/11/06 18:36:32 by lbaumeis         ###   ########.fr       */
+/*   Updated: 2023/11/06 18:45:19 by lbaumeis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libftprintf.h"
 
 static int	ft_islower(char c)
 {

@@ -6,11 +6,11 @@
 /*   By: lbaumeis <lbaumeis@student.42vienna.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/01 20:54:11 by lbaumeis          #+#    #+#             */
-/*   Updated: 2023/11/06 18:36:49 by lbaumeis         ###   ########.fr       */
+/*   Updated: 2023/11/06 18:45:55 by lbaumeis         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libftprintf.h"
 
 int	ft_decideformat(va_list args, const char *format, int i)
 {
