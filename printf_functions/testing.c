@@ -1,9 +1,22 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   testing.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: lbaumeis <lbaumeis@student.42vienna.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/06/02 19:17:40 by lbaumeis          #+#    #+#             */
+/*   Updated: 2024/06/02 19:19:21 by lbaumeis         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 //TESTING
 
 #include <unistd.h>
 #include <stdio.h>
 #include <limits.h>
 #include <string.h>
+#include "ft_printf.h"
 
 void test_simple_conversions()
 {
@@ -55,10 +68,10 @@ void test_multiple_args()
 
 void test_sequences()
 {
-    my_printf("%d%d%d", 1, 2, 3);
+    ft_printf("%d%d%d", 1, 2, 3);
     printf("%d%d%d", 1, 2, 3);
     printf("/n");
-    my_printf("%s%s%s", "one", "two", "three");
+    ft_printf("%s%s%s", "one", "two", "three");
     printf("%s%s%s", "one", "two", "three");
     printf("/n");
 }
@@ -87,8 +100,8 @@ void test_bonus_printf()
     ft_printf("%d\n", INT_MIN);
     printf("%d\n", INT_MIN);
     printf("/n");
-    ft_printf("%%-d\n", INT_MAX);
-    printf("%%-d\n", INT_MAX);
+    ft_printf("%-d\n", INT_MAX);
+    printf("%-d\n", INT_MAX);
     printf("/n");
     ft_printf("#%-10d\n", num);
     printf("#%-10d\n", num);
